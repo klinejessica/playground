@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostcrossingComponent } from './postcrossing/postcrossing.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostcrossingComponent
+    PostcrossingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
