@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { PostcrossingComponent } from './postcrossing/postcrossing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostcrossingComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
