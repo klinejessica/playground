@@ -1,40 +1,48 @@
 <div class="container">
-<section class="hero is-link is-medium">
+  <section class="hero is-link is-medium">
     <div class="hero-body">
-    <figure class="media-left">
+      <div class="columns">
+        <div class="column">
+          <figure class="media-left">
             <p class="image is-128x128">
               <img src="https://bulma.io/images/placeholders/128x128.png">
             </p>
           </figure>
-      <header class="title has-text-centered">
-        Username
-      </header>
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">sent</p>
-            <p class="title">13</p>
-            <p class="heading">received</p>
-            <p class="title">10</p>
-          </div>
         </div>
-    </nav>
-      <!-- <p class="subtitle">
+        <div class="column">
+        <header class="title has-text-centered">
+          Username
+        </header>
+      </div>
+      <div class="column">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">sent</p>
+              <p class="title">13</p>
+              <p class="heading">received</p>
+              <p class="title">10</p>
+            </div>
+          </div>
+        </nav>
+        </div>
+        <!-- <p class="subtitle">
         Link subtitle
       </p> -->
+      </div>
     </div>
   </section>
   <section>
     <div class="tabs is-centered">
-        <ul>
-          <li class="is-active"><a routerLink="about">About</a></li>
-          <li><a routerLink="sent">Sent</a></li>
-          <li><a routerLink="received">Received</a></li>
-          <li><a routerLink="wall">Wall</a></li>
-          <li><a routerLink="map">Map</a></li>
-          <li><a routerLink="stats">Stats</a></li>
-        </ul>
-      </div>
+      <ul>
+        <li class="is-active"><a routerLink="about">About</a></li>
+        <li><a routerLink="sent">Sent</a></li>
+        <li><a routerLink="received">Received</a></li>
+        <li><a routerLink="wall">Wall</a></li>
+        <li><a routerLink="map">Map</a></li>
+        <li><a routerLink="stats">Stats</a></li>
+      </ul>
+    </div>
   </section>
   <app-about></app-about>
 </div>
