@@ -5,11 +5,26 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostcrossingComponent } from './postcrossing/postcrossing.component';
 import { ProfileComponent } from './profile/profile.component';
 
-const routes: Routes = [ 
+const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'about', component: AboutComponent },
   { path: 'postcrossing', component: PostcrossingComponent },
-  { path: 'profile', component: ProfileComponent }
+  {
+    path: 'profile', component: ProfileComponent,
+    children: [
+      {
+        path: 'about',  // child route path
+        component: AboutComponent,  // child route component that the router renders
+      }
+      // {
+      //   path: 'sent',
+      //   component: ChildBComponent,  // another child route component that the router renders
+      // },
+      // {
+      //   path: 'received',
+      //   component: ChildBComponent,  // another child route component that the router renders
+      // },
+    ],
+  }
 ];
 
 @NgModule({
