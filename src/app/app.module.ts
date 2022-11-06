@@ -7,6 +7,7 @@ import { PostcrossingComponent } from './postcrossing/postcrossing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
+import { SentComponent } from './sent/sent.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AboutComponent } from './about/about.component';
     PostcrossingComponent,
     DashboardComponent,
     ProfileComponent,
-    AboutComponent
+    AboutComponent,
+    SentComponent
   ],
   imports: [
     BrowserModule,

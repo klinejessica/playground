@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostcrossingComponent } from './postcrossing/postcrossing.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SentComponent } from './sent/sent.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -14,11 +15,11 @@ const routes: Routes = [
       {
         path: 'about',  // child route path
         component: AboutComponent,  // child route component that the router renders
+      },
+      {
+        path: 'sent',
+        component: SentComponent,  // another child route component that the router renders
       }
-      // {
-      //   path: 'sent',
-      //   component: ChildBComponent,  // another child route component that the router renders
-      // },
       // {
       //   path: 'received',
       //   component: ChildBComponent,  // another child route component that the router renders

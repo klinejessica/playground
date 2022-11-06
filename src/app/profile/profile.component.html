@@ -10,23 +10,23 @@
           </figure>
         </div>
         <div class="column">
-        <header class="title has-text-centered">
-          Username
-        </header>
-        <p><i class="fa-solid fa-users"></i> Date Joined</p>
-        <p><i class="fa-solid fa-eye"></i> Last seen</p>
-      </div>
-      <div class="column">
-        <nav class="level">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">sent</p>
-              <p class="title">13</p>
-              <p class="heading">received</p>
-              <p class="title">10</p>
+          <header class="title has-text-centered">
+            Username
+          </header>
+          <p><i class="fa-solid fa-users"></i> Date Joined</p>
+          <p><i class="fa-solid fa-eye"></i> Last seen</p>
+        </div>
+        <div class="column">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">sent</p>
+                <p class="title">13</p>
+                <p class="heading">received</p>
+                <p class="title">10</p>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
         </div>
         <!-- <p class="subtitle">
         Link subtitle
@@ -37,7 +37,7 @@
   <section>
     <div class="tabs is-centered">
       <ul>
-        <li class="is-active"><a routerLink="about">About</a></li>
+        <li class="is-active"><a routerLink="about" id="about">About</a></li>
         <li><a routerLink="sent">Sent</a></li>
         <li><a routerLink="received">Received</a></li>
         <li><a routerLink="wall">Wall</a></li>
@@ -46,5 +46,7 @@
       </ul>
     </div>
   </section>
-  <app-about></app-about>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
