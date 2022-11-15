@@ -10,68 +10,37 @@ export class StatsComponent implements OnInit {
 
   data: any;
   chartOptions: any;
-  // subscription: Subscription;
-  // config: AppConfig;
 
   constructor() { }
-  // private configService: AppConfig
   ngOnInit(): void {
     this.data = {
-      labels: ['Algeria','Japan','Slovakia', 'Finland', 'Luxembourg', 'Norway', 'France', 'Austria', 'Canada',
-    'Netherlands', 'Poland', 'Russia', 'Spain', 'Taiwan', 'Germany', 'Australia', 'United Kingdom'],
+      labels: ['Algeria', 'Japan', 'Slovakia', 'Finland', 'Luxembourg', 'Norway', 'France', 'Austria', 'Canada',
+        'Netherlands', 'Poland', 'Russia', 'Spain', 'Taiwan', 'Germany', 'Australia', 'United Kingdom'],
       datasets: [
-          {
-              data: [1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 10, 3, 4],
-              backgroundColor: [
-                  "#ff0000",
-                  "#ff4500",
-                  "#ff9f00",
-                  "#ffae42",
-                  "#a6d608", //Vivid lime green
-                  
-              ],
-              hoverBackgroundColor: [
-                 
-              ]
-          }
+        {
+          data: [1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 10, 3, 4],
+          backgroundColor: [
+            "#ff0000",
+            "#ff4500",
+            "#ff9f00",
+            "#ffae42",
+            "#a6d608", //Vivid lime green
+            "#32cd32", //lime green
+            "#0a7e8c", //Metallic seweed
+            "#0070ff", //brandeis blue
+            "#0000ff", //blue
+            "#8a2be2", //blue violet
+            "#c71585", //medium violet red
+            "#7f1734", //claret
+            "#9370db", //medium purple
+          ],
+          hoverBackgroundColor: [
+
+          ]
+        }
       ]
-  };
+    };
 
-  // this.config = this.configService.config;
-  // this.updateChartOptions();
-  // this.subscription = this.configService.configUpdate$.subscribe(config => {
-  //     this.config = config;
-  //     this.updateChartOptions();
-  // });
-  // }
 
-//   updateChartOptions() {
-//     this.chartOptions = this.config && this.config.dark ? this.getDarkTheme() : this.getLightTheme();
-// }
-
-// getLightTheme() {
-//     return {
-//         plugins: {
-//             legend: {
-//                 labels: {
-//                     color: '#495057'
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// getDarkTheme() {
-//     return {
-//         plugins: {
-//             legend: {
-//                 labels: {
-//                     color: '#ebedef'
-//                 }
-//             }
-//         }
-//     }
-// }
-
-}
+  }
 }
