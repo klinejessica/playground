@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 
 
 export interface Postcards{
-postcardId?: string;
+  postcardId?: string;
   toMember?: string;
   toCountry?: string;
   sentDate?: Date;
