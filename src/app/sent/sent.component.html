@@ -11,7 +11,12 @@
             <th>Img</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="postcards">
+        <td>{{postcards.postcardId}}</td>
+        <td>{{postcards.toMember}}</td> 
+        <td>{{postcards.toCountry}}</td>
+        <td>{{postcards.receivedDate}}</td> 
+        <td>{{postcards.img}}</td>
 
     </tbody>
     <tfoot>
