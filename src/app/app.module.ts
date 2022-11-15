@@ -10,6 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { SentComponent } from './sent/sent.component';
 import { TableModule } from 'primeng/table';
+import { StatsComponent } from './stats/stats.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { TableModule } from 'primeng/table';
     DashboardComponent,
     ProfileComponent,
     AboutComponent,
-    SentComponent
+    SentComponent,
+    StatsComponent
    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    TableModule
+    TableModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
