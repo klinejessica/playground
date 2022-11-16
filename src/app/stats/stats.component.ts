@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Numbers, StatsService } from './stats.service';
+
 
 @Component({
   selector: 'app-stats',
@@ -7,11 +9,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit {
-
+  //pie chart
   data: any;
   chartOptions: any;
+  //table
+  // numbers: Numbers[];
+  // cols: any[];
 
-  constructor() { }
+  constructor(private statsService: StatsService) { }
   ngOnInit(): void {
     this.data = {
       labels: ['Algeria', 'Japan', 'Slovakia', 'Finland', 'Luxembourg', 'Norway', 'France', 'Austria', 'Canada',
@@ -40,7 +45,16 @@ export class StatsComponent implements OnInit {
         }
       ]
     };
+  //table
 
+  // this.statsService.getNumbers().then(data => this.numbers =data);
 
+  // this.cols = [
+  //   { field: 'country', header: 'Country' },
+  //   { field: 'sent', header: 'Sent' },
+  //   { field: 'received', header: 'Received' },
+  //   { field: 'avgtravelsent', header: 'Average Travel (sent)' },
+  //   { field: 'avgtravelreceived', header: 'Average Travel (received)' },
+  // ]
   }
 }

@@ -12,6 +12,7 @@ import { SentComponent } from './sent/sent.component';
 import { TableModule } from 'primeng/table';
 import { StatsComponent } from './stats/stats.component';
 import { ChartModule } from 'primeng/chart';
+import { ReceivedComponent } from './received/received.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ChartModule } from 'primeng/chart';
     ProfileComponent,
     AboutComponent,
     SentComponent,
+    ReceivedComponent,
     StatsComponent
    
   ],

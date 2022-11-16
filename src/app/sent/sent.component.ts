@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Postcards } from './sent.service';
+// import { Postcards } from './sent.service';
 import { SentService } from './sent.service';
-
+import * as data from '../sentdata.json';
 
 @Component({
   selector: 'app-sent',
@@ -10,28 +10,13 @@ import { SentService } from './sent.service';
   styleUrls: ['./sent.component.scss']
 })
 export class SentComponent implements OnInit {
-  error: any;
-  postcards: Postcards | undefined;
+  postcards: any = (data as any).default;
 
   constructor(private httpClient: HttpClient, private sentService: SentService) { }
 
 
   ngOnInit() {
-    this.showData();
-
   }
 
-  showData() {
-    this.sentService.getData()
-          .subscribe((data: Postcards) => this.postcards = {
-          postcardId: data.postcardId,
-          toMember: data.toMember,
-          toCountry: data.toCountry,
-          sentDate: data.sentDate,
-          receivedDate: data.receivedDate,
-          img:data.img
-      });
-  }
-
-
+  
 }

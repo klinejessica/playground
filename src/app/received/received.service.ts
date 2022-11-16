@@ -16,8 +16,8 @@ export interface Postcards{
   })
 
 @Injectable()
-export class SentService {
-    sentUrl = 'assets/sentdata.json';
+export class ReceivedService {
+    receivedUrl = 'assets/receiveddata.json';
 
     constructor(private http: HttpClient){}
 
@@ -27,7 +27,7 @@ export class SentService {
     // }
 
     getData(){
-      return this.http.get<Postcards>(this.sentUrl);
+      return this.http.get<Postcards>(this.receivedUrl);
     }
 
    
