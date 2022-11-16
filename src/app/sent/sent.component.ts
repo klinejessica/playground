@@ -11,12 +11,35 @@ import * as data from '../sentdata.json';
 })
 export class SentComponent implements OnInit {
   postcards: any = (data as any).default;
+  //pagination
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+  tableSizes: any = [5,10,15,20];
+
 
   constructor(private httpClient: HttpClient, private sentService: SentService) { }
 
 
   ngOnInit() {
+    this.sentList();
   }
 
-  
+  sentList(): void {
+    this.sentService.getData().subscribe((response)=>{
+      this.postcards = response;
+      console.log(response);
+    })
+  }
+
+  onTableDataChange(event: any){
+    this.tableSize = event;
+    this.sentList();
+  }
+
+  onTableSizeChange(event: any){
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.sentList();
+  }
 }

@@ -38,6 +38,7 @@ export class StatsComponent implements OnInit {
             "#c71585", //medium violet red
             "#7f1734", //claret
             "#9370db", //medium purple
+            "#ffc0cb"
           ],
           hoverBackgroundColor: [
 

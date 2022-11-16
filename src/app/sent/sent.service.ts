@@ -21,11 +21,6 @@ export class SentService {
 
     constructor(private http: HttpClient){}
 
-    // getData(): Observable<HttpResponse<Postcards>>{
-    //     return this.http.get<Postcards>(
-    //       this.sentUrl, { observe: 'response', responseType: 'json'});
-    // }
-
     getData(){
       return this.http.get<Postcards>(this.sentUrl);
     }

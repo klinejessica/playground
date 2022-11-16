@@ -13,6 +13,8 @@ import { TableModule } from 'primeng/table';
 import { StatsComponent } from './stats/stats.component';
 import { ChartModule } from 'primeng/chart';
 import { ReceivedComponent } from './received/received.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ReceivedComponent } from './received/received.component';
     HttpClientModule,
     AppRoutingModule,
     TableModule,
-    ChartModule
+    ChartModule,
+    NgxPaginationModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

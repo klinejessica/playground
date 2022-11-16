@@ -1,5 +1,9 @@
 <div class="table-container">
-
+<select (change)="onTableSizeChange($event)">
+    <option *ngFor="let size of tableSizes">
+        {{size}}
+    </option>
+</select>
 <table class="table">
     <thead>
         <tr>
@@ -11,17 +15,22 @@
             <th>Img</th>
         </tr>
     </thead>
-    <tbody *ngFor="let post of postcards">
+    <tbody >
+        <tr *ngFor="let post of postcards | paginate: { itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count}; let i = index">
         <td>{{post.postcardId}}</td>
         <td>{{post.toMember}}</td> 
         <td>{{post.toCountry}}</td>
         <td>{{post.sentDate}}</td> 
         <td>{{post.receivedDate}}</td> 
         <td>{{post.img}}</td>
-
+    </tr>
     </tbody>
     <tfoot>
-        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+       
+
+        <!-- <nav class="pagination is-centered" role="navigation" aria-label="pagination">
             <a class="pagination-previous">Previous</a>
             <a class="pagination-next">Next page</a>
             <ul class="pagination-list">
@@ -33,10 +42,15 @@
               <li><span class="pagination-ellipsis">&hellip;</span></li>
               <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
             </ul>
-          </nav>
+          </nav> -->
     </tfoot>
 </table>
-
+<pagination-controls
+previousLabel = "Prev"
+nextLabel = "Next"
+(pageChange)="onTableDataChange($event)"
+>
+</pagination-controls>
 <!-- <p-table [value]="postcards" responsiveLayout="scroll">
     <ng-template pTemplate="header">
         <tr>
