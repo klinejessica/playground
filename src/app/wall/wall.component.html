@@ -1,0 +1,20 @@
+<h5>Custom Contents</h5>
+<!-- [responsiveOptions]="responsiveOptions" -->
+
+<p-galleria [value]="images"  [(activeIndex)]="activeIndex"  [containerStyle]="{'max-width': '850px'}" [numVisible]="7"
+    [circular]="true" [(visible)]="displayCustom"[fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false" [baseZIndex]="100000">
+    <ng-template pTemplate="item" let-item>
+        <img [src]="item.previewImageSrc" style="width: 100%; display: block;"/>
+    </ng-template>
+    <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+            <img style="display: block;"/>
+        </div>
+    </ng-template>
+</p-galleria>
+<div *ngIf="images" class="grid" style="max-width: 400px;">
+    <div *ngFor="let image of images; let index = index;" class="col-3" key="index">
+        <img [src]="image.thumbnailImageSrc" [alt]="image.desc" style="cursor: pointer" (click)="expandPhoto(index)"/>
+    </div>
+</div>
+

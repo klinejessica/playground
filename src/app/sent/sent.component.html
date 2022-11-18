@@ -1,36 +1,41 @@
 <div class="table-container">
-<select (change)="onTableSizeChange($event)">
-    <option *ngFor="let size of tableSizes">
-        {{size}}
-    </option>
-</select>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Postcard ID</th>
-            <th>To member</th>
-            <th>To country</th>
-            <th>Sent</th>
-            <th>Received</th>
-            <th>Img</th>
-        </tr>
-    </thead>
-    <tbody >
-        <tr *ngFor="let post of postcards | paginate: { itemsPerPage: tableSize,
-            currentPage: page,
-            totalItems: count}; let i = index">
-        <td>{{post.postcardId}}</td>
-        <td>{{post.toMember}}</td> 
-        <td>{{post.toCountry}}</td>
-        <td>{{post.sentDate}}</td> 
-        <td>{{post.receivedDate}}</td> 
-        <td>{{post.img}}</td>
-    </tr>
-    </tbody>
-    <tfoot>
-       
+    <select (change)="onTableSizeChange($event)">
+        <option *ngFor="let size of tableSizes">
+            {{size}}
+        </option>
+    </select>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Postcard ID</th>
+                <th>To member</th>
+                <th>To country</th>
+                <th>Sent</th>
+                <th>Received</th>
+                <th>Img</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of postcards | paginate:{
+                itemsPerPage:tableSize,
+                currentPage: page,
+                totalItems: count } ; let i = index ">
+                <td>{{post.postcardId}}</td>
+                <td>{{post.toMember}}</td>
+                <td>{{post.toCountry}}</td>
+                <td>{{post.sentDate}}</td>
+                <td>{{post.receivedDate}}</td>
+                <td>{{post.img}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
 
-        <!-- <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+
+            <!-- | paginate: {
+                itemsPerPage:tableSize
+                currentPage: page
+                totalItems: count } ; let i = index -->
+            <!-- <nav class="pagination is-centered" role="navigation" aria-label="pagination">
             <a class="pagination-previous">Previous</a>
             <a class="pagination-next">Next page</a>
             <ul class="pagination-list">
@@ -43,31 +48,11 @@
               <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
             </ul>
           </nav> -->
-    </tfoot>
-</table>
-<pagination-controls
-previousLabel = "Prev"
-nextLabel = "Next"
-(pageChange)="onTableDataChange($event)"
->
-</pagination-controls>
-<!-- <p-table [value]="postcards" responsiveLayout="scroll">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-        <tr>
-            <td>{{postcards.code}}</td>
-            <td>{{postcards.name}}</td>
-            <td>{{postcards.category}}</td>
-            <td>{{postcards.quantity}}</td>
-        </tr>
-    </ng-template>
-</p-table> -->
-
+        </tfoot>
+    </table>
+    <pagination-controls 
+    previousLabel="Prev" 
+    nextLabel="Next" 
+    (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
 </div>

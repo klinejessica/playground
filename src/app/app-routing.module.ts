@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReceivedComponent } from './received/received.component';
 import { SentComponent } from './sent/sent.component';
 import { StatsComponent } from './stats/stats.component';
+import { WallComponent } from './wall/wall.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'received',
         component: ReceivedComponent,  // another child route component that the router renders
+      },
+      {
+        path: 'wall',
+        component: WallComponent,  // another child route component that the router renders
       },
       {
         path: 'stats',

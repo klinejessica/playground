@@ -14,6 +14,8 @@ import { StatsComponent } from './stats/stats.component';
 import { ChartModule } from 'primeng/chart';
 import { ReceivedComponent } from './received/received.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { WallComponent } from './wall/wall.component';
+import {GalleriaModule} from 'primeng/galleria';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AboutComponent,
     SentComponent,
     ReceivedComponent,
-    StatsComponent
+    StatsComponent,
+    WallComponent
    
   ],
   imports: [
@@ -34,9 +37,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     TableModule,
     ChartModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    GalleriaModule
    
   ],
+  // exports: [ NgxPaginationModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -15,7 +15,7 @@ export class SentComponent implements OnInit {
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
-  tableSizes: any = [5,10,15,20];
+  tableSizes: any = [10,15,20];
 
 
   constructor(private httpClient: HttpClient, private sentService: SentService) { }
@@ -33,7 +33,7 @@ export class SentComponent implements OnInit {
   }
 
   onTableDataChange(event: any){
-    this.tableSize = event;
+    this.page = event;
     this.sentList();
   }
 
