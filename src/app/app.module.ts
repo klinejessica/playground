@@ -16,6 +16,7 @@ import { ReceivedComponent } from './received/received.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { WallComponent } from './wall/wall.component';
 import {GalleriaModule} from 'primeng/galleria';
+import { BooksModule } from './books/books.module';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {GalleriaModule} from 'primeng/galleria';
     TableModule,
     ChartModule,
     NgxPaginationModule,
-    GalleriaModule
+    GalleriaModule,
+    BooksModule
    
   ],
   // exports: [ NgxPaginationModule],

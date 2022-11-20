@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { BooksComponent } from './books/books/books.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostcrossingComponent } from './postcrossing/postcrossing.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -36,7 +37,15 @@ const routes: Routes = [
         component: StatsComponent,  // another child route component that the router renders
       }
     ],
-  }
+  },
+  { path: 'books', component: BooksComponent,
+    children: [ 
+      { path: 'bookorder', component: BooksComponent },
+      { path: 'booksworld', component: BooksComponent},
+      { path: 'books2021', component: BooksComponent},
+      { path: 'books2022', component: BooksComponent}
+],
+ }
 ];
 
 @NgModule({
