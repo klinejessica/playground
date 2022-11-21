@@ -13,6 +13,7 @@ import { WallComponent } from './wall/wall.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'postcrossing', component: PostcrossingComponent },
+  { path: 'books', component: BooksComponent},
   {
     path: 'profile', component: ProfileComponent,
     children: [
@@ -38,14 +39,7 @@ const routes: Routes = [
       }
     ],
   },
-  { path: 'books', component: BooksComponent,
-    children: [ 
-      { path: 'bookorder', component: BooksComponent },
-      { path: 'booksworld', component: BooksComponent},
-      { path: 'books2021', component: BooksComponent},
-      { path: 'books2022', component: BooksComponent}
-],
- }
+  
 ];
 
 @NgModule({
@@ -53,3 +47,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+// loadChildren: () => import('./books/books.module').then(m => m.BooksModule)

@@ -14,7 +14,7 @@
             <button class="button is-primary" routerLink="/books2021">
                 Books 2021
             </button>
-            <button class="button is-primary" routerLink="/book2022">
+            <button class="button is-primary" routerLink="/books2022">
                 Books 2022
             </button>
         </div>
@@ -23,6 +23,16 @@
                 <div class="tile is-parent">
                   <article class="tile is-child box">
                     <p class="title"> Book Order</p>
+                    <button class="button is-link">
+                        Edit
+                    </button>
+                    <div class="box" *ngFor="let b of book">
+                        <input type="checkbox">
+                        {{b.title}}
+                      </div>
+                      <div class="box">
+                        <input class="input" type="text" placeholder="add option" (event)="addBook()">
+                      </div>
                   </article>
                 </div>
             </div>
