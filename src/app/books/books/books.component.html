@@ -85,8 +85,8 @@
               </nav>
               <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
               <!-- <form [formGroup> -->
-                <div class="box" *ngFor="let b of bookOrder; let i = index">
-                  <input [(ngModel)]="isChecked" name="{{b.id}}" type="checkbox" (change)="onCheckboxChange($event)" [value]="b.id">
+                <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of bookOrder; let i = index">
+                  <input  name="{{b.id}}" type="checkbox" (change)="onCheckboxChange($event)" [value]="b.id">
                   {{b.title}}
                 </div>
 
