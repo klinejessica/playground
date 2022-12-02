@@ -1,152 +1,154 @@
 <div class="containter">
-    <div id="grid">
-        <div id="column1">
-            <button (click)="isBook=true" class="button is-primary" routerLink="/books">
-                Books
-            </button>
-            <button (click)="isBookOrder =true"class="button is-primary" routerLink="/booksorder">
-                Book Order
-            </button>
-            <button (click)="isWorld =true" class="button is-primary" routerLink="/booksworld">
-                Books World
-            </button>
-            <button class="button is-primary" routerLink="/books2021">
-                Books 2021
-            </button>
-            <button class="button is-primary" routerLink="/books2022">
-                Books 2022
-            </button>
-        </div>
-        <ng-container >
-            <div id="column2" *ngIf="isBook">
-                <div class="tile is-ancestor">
-                    <div class="tile is-parent">
-                        <article class="tile is-child box">
-                            <p class="title"> Books</p>
-                            <button class="button is-link">
-                                Edit
-                            </button>
-                            <nav class="level is-mobile">
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Total</p>
-                                    <p class="title">182</p>
-                                  </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Non-Library</p>
-                                    <p class="title">38</p>
-                                  </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Library</p>
-                                    <p class="title">135</p>
-                                  </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Read</p>
-                                    <p class="title">132</p>
-                                  </div>
-                                </div>
-                              </nav>
-                              <progress class="progress is-danger" value="132" max="314"></progress>
-                            <!-- default -->
-                            <div class="box" *ngFor="let b of book">
-                                <input id="item" type="checkbox" (event)="toggle()">
-                                {{b.title}}
-                            </div>
-                            <div class="box">
-                                <input class="input" type="text" placeholder="add option" (event)="addBook()">
-                            </div>
-                        </article>
-                    </div>
+  <div id="grid">
+    <div id="column1">
+      <button (click)="isBook=true" class="button is-primary" routerLink="/books">
+        Books
+      </button>
+      <button (click)="isBookOrder =true" class="button is-primary" routerLink="/booksorder">
+        Book Order
+      </button>
+      <button (click)="isWorld =true" class="button is-primary" routerLink="/booksworld">
+        Books World
+      </button>
+      <button class="button is-primary" routerLink="/books2021">
+        Books 2021
+      </button>
+      <button class="button is-primary" routerLink="/books2022">
+        Books 2022
+      </button>
+    </div>
+    <ng-container>
+      <div id="column2" *ngIf="isBook">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">182</p>
+                  </div>
                 </div>
-            </div>
-        </ng-container>
-        <ng-container>
-        <div id="column3" *ngIf="isBookOrder">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title"> Book Order</p>
-                        <button class="button is-link">
-                            Edit
-                        </button>
-                        <nav class="level is-mobile">
-                            <div class="level-item has-text-centered">
-                              <div>
-                                <p class="heading">Total</p>
-                                <p class="title">{{this.counter}}</p>
-                              </div>
-                            </div>
-                          </nav>
-                          <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
-                        <div class="box" *ngFor="let b of bookOrder">
-                            <input type="checkbox" (click)="toggle()">
-                            {{b.title}}
-                        </div>
-                        <div class="box">
-                            <input class="input" type="text" placeholder="add option">
-                        </div>
-        
-                    </article>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">38</p>
+                  </div>
                 </div>
-            </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">135</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">132</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="132" max="314"></progress>
+              <!-- default -->
+              <div class="box" *ngFor="let b of book; let i = index">
+                <input id="item" type="checkbox">
+                {{b.title}}
+              </div>
+              <div class="box">
+                <input class="input" type="text" placeholder="add option" (event)="addBook()">
+              </div>
+            </article>
+          </div>
         </div>
-        </ng-container>
-        
-        <ng-container>
-            <div id="column2" *ngIf="isWorld">
-                <div class="tile is-ancestor">
-                    <div class="tile is-parent">
-                        <article class="tile is-child box">
-                            <p class="title"> Books World</p>
-                            <button class="button is-link">
-                                Edit
-                            </button>
-                            <nav class="level is-mobile">
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Total</p>
-                                    <p class="title">9</p>
-                                  </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Library</p>
-                                    <p class="title">123</p>
-                                  </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Non-Library</p>
-                                    <p class="title">456K</p>
-                                  </div>
-                                </div>
-                                <div class="level-item has-text-centered">
-                                  <div>
-                                    <p class="heading">Read</p>
-                                    <p class="title">0</p>
-                                  </div>
-                                </div>
-                              </nav>
-                              <progress class="progress is-danger" value="0" max="100">90%</progress>
-                            <!-- default -->
-                            <div class="box" *ngFor="let b of bookWorld">
-                                <input type="checkbox">
-                                {{b.title}}
-                            </div>
-                            <div class="box">
-                                <input class="input" type="text" placeholder="add option" (event)="addBook()">
-                            </div>
-                        </article>
-                    </div>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div id="column3" *ngIf="isBookOrder">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Book Order</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">{{this.counter}}</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
+              <!-- <form [formGroup> -->
+                <div class="box" *ngFor="let b of bookOrder; let i = index">
+                  <input [(ngModel)]="isChecked" name="{{b.id}}" type="checkbox" (change)="onCheckboxChange($event)" [value]="b.id">
+                  {{b.title}}
                 </div>
 
-            </div>
-        </ng-container>
-    </div>
+                <div class="box">
+                  <input class="input" type="text" placeholder="add option">
+                </div>
+              <!-- </form> -->
+            </article>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container>
+      <div id="column2" *ngIf="isWorld">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books World</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">9</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">123</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">456K</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- default -->
+              <div class="box" *ngFor="let b of bookWorld">
+                <input type="checkbox">
+                {{b.title}}
+              </div>
+              <div class="box">
+                <input class="input" type="text" placeholder="add option" (event)="addBook()">
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
 </div>

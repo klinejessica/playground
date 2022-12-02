@@ -17,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { WallComponent } from './wall/wall.component';
 import {GalleriaModule} from 'primeng/galleria';
 import { BooksModule } from './books/books.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { BooksModule } from './books/books.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     TableModule,
     ChartModule,
     NgxPaginationModule,
