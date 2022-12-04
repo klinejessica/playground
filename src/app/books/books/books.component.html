@@ -4,16 +4,16 @@
       <button (click)="isBook=true" class="button is-primary" routerLink="/books">
         Books
       </button>
-      <button (click)="isBookOrder =true" class="button is-primary" routerLink="/booksorder">
+      <button (click)="isBookOrder=true" class="button is-primary" routerLink="/booksorder">
         Book Order
       </button>
       <button (click)="isWorld =true" class="button is-primary" routerLink="/booksworld">
         Books World
       </button>
-      <button class="button is-primary" routerLink="/books2021">
+      <button (click)="is2021=true" class="button is-primary" routerLink="/books2021">
         Books 2021
       </button>
-      <button class="button is-primary" routerLink="/books2022">
+      <button (click)="is2022=true" class="button is-primary" routerLink="/books2022">
         Books 2022
       </button>
     </div>
@@ -100,6 +100,8 @@
       </div>
     </ng-container>
 
+
+    <!-- BOOKS WORLD -->
     <ng-container>
       <div id="column2" *ngIf="isWorld">
         <div class="tile is-ancestor">
@@ -119,26 +121,130 @@
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Library</p>
-                    <p class="title">123</p>
+                    <p class="title">0</p>
                   </div>
                 </div>
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Non-Library</p>
-                    <p class="title">456K</p>
+                    <p class="title">0</p>
                   </div>
                 </div>
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Read</p>
-                    <p class="title">0</p>
+                    <p class="title">{{this.counter}}</p>
                   </div>
                 </div>
               </nav>
               <progress class="progress is-danger" value="0" max="100">90%</progress>
               <!-- default -->
-              <div class="box" *ngFor="let b of bookWorld">
-                <input type="checkbox">
+              <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of bookWorld">
+                <input type="checkbox" (change)="onCheckboxChange($event)">
+                {{b.title}}
+              </div>
+              <div class="box">
+                <input class="input" type="text" placeholder="add option" (event)="addBook()">
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- BOOKS 2021 -->
+    <ng-container>
+      <div id="column2" *ngIf="is2021">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books 2021</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">78</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">{{this.counter}}</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- default -->
+              <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of books2021">
+                <input type="checkbox" (change)="onCheckboxChange($event)">
+                {{b.title}}
+              </div>
+              <div class="box">
+                <input class="input" type="text" placeholder="add option" (event)="addBook()">
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+     <!-- BOOKS 2022 -->
+     <ng-container>
+      <div id="column2" *ngIf="is2022">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books 2022</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">20</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">{{this.counter}}</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- default -->
+              <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of books2022">
+                <input type="checkbox" (change)="onCheckboxChange($event)">
                 {{b.title}}
               </div>
               <div class="box">

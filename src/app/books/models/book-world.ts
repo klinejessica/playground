@@ -1,13 +1,13 @@
 import { Book } from './book';
 
 export const BOOKSWORLD: Book[] = [
-//   { id: 1, title: 'Africa', author:'Dr. Nice' },
-//   { id: 2, title: 'Zimbabwe', author:'Dr. Nice' },
-//   { id: 3, title: 'Turkey', author:'Dr. Nice'},
-//   { id: 4, title: 'Mexico', author:'Dr. Nice' },
-//   { id: 5, title: 'Poland', author:'Dr. Nice' },
-//   { id: 6, title: 'Greece', author:'Dr. Nice' },
-//   { id: 7, title: 'Tuvalu', author:'Dr. Nice' },
-//   { id: 8, title: 'South Korea', author:'Dr. Nice' },
-//   { id: 9, title: 'Kosovo', author:'Dr. Nice' }
+  { id: 1, title: 'The Ministry of Pain', author:'Dubravka Ugrešić' },
+  { id: 2, title: "I Shall Not Hate: A Gaza Doctor's Journey on the Road to Peace and Human Dignity", author:'Izzeldin Abuelaish' },
+  { id: 3, title: 'Chasing the King of Hearts', author:'Hanna Krall'},
+  { id: 4, title: 'Pedagogy of the Oppressed', author:'Paulo Freire' },
+  { id: 5, title: 'Letters from Klara', author:'Tove Jansson' },
+  { id: 6, title: 'Down the Rabbit Hole', author:'Juan Pablo Villalobos' },
+  { id: 7, title: 'Evening Primrose', author:'Kopano Matlwa' },
+  { id: 8, title: 'Beneath the Darkening Sky', author:'Majok Tulba' },
+  { id: 9, title: 'The Mimic Men', author:'V.S. Naipaul' }
 ];
