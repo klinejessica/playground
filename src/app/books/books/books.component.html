@@ -85,14 +85,14 @@
               </nav>
               <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
               <!-- <form [formGroup> -->
-                <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of bookOrder; let i = index">
-                  <input  name="{{b.id}}" type="checkbox" (change)="onCheckboxChange($event)" [value]="b.id">
-                  {{b.title}}
-                </div>
+              <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of bookOrder; let i = index">
+                <input name="{{b.id}}" type="checkbox" (change)="onCheckboxChange($event)" [value]="b.id">
+                {{b.title}}
+              </div>
 
-                <div class="box">
-                  <input class="input" type="text" placeholder="add option">
-                </div>
+              <div class="box">
+                <input class="input" type="text" placeholder="add option">
+              </div>
               <!-- </form> -->
             </article>
           </div>
@@ -205,8 +205,8 @@
       </div>
     </ng-container>
 
-     <!-- BOOKS 2022 -->
-     <ng-container>
+    <!-- BOOKS 2022 -->
+    <ng-container>
       <div id="column2" *ngIf="is2022">
         <div class="tile is-ancestor">
           <div class="tile is-parent">
@@ -242,7 +242,16 @@
                 </div>
               </nav>
               <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- read v unread -->
+                  <div class="tabs is-centered">
+                    <ul>
+                      <li><a routerLink="/books2022" class="active" (click)="read = false" >Unread</a></li>
+                      <li><a routerLink="read" (click)="read = true">Read</a></li>
+                    </ul>
+                  </div>
+              
               <!-- default -->
+              <ng-container *ngIf="!read">
               <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of books2022">
                 <input type="checkbox" (change)="onCheckboxChange($event)">
                 {{b.title}}
@@ -250,6 +259,15 @@
               <div class="box">
                 <input class="input" type="text" placeholder="add option" (event)="addBook()">
               </div>
+              <div *ngIf="isChecked">
+                <div class="box" *ngFor="let q of books2022">
+                  {{q.title}}
+                </div>
+              </div>
+              </ng-container>
+              <ng-container *ngIf="read">
+
+              </ng-container>
             </article>
           </div>
         </div>

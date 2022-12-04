@@ -28,6 +28,7 @@ export class BooksComponent implements OnInit {
   bookTab = "";
   counter: number = 0;
   isChecked: boolean = false;
+  read:boolean = false;
 
 
 
@@ -45,43 +46,23 @@ export class BooksComponent implements OnInit {
   }
 
   getBooks() {
-    // this.isBookOrder = false;
-    // this.isBook = true
-    // this.is2021 = false;
-    // this.is2022 = false;
-    // this.isWorld = false;
     this.booksService.getBooks().subscribe(books => this.book = books);
   }
 
   getBookOrder() {
-    // this.isBook = false;
-    // this.isBookOrder = true;
     this.booksService.getBookOrder().subscribe(books => this.bookOrder = books);
   }
 
 
   getBooksWorld() {
-    // this.isBook = false;
-    // this.isBookOrder = false;
-    // this.is2021 = false;
-    // this.is2022 = false;
-    // this.isWorld = true;
     this.booksService.getBooksWorld().subscribe(books => this.bookWorld = books);
   }
 
   getBooks2021() {
-    // this.isBook = false;
-    // this.isBookOrder = false;
-    // this.is2021 = true;
-    // this.is2021 = false;
     this.booksService.getBooks2021().subscribe(books => this.books2021 = books);
   }
 
   getBooks2022() {
-    // this.isBook = false;
-    // this.isBookOrder = false;
-    // this.is2021 = false;
-    // this.is2022 = true;
     this.booksService.getBooks2022().subscribe(books => this.books2022 = books);
   }
 
