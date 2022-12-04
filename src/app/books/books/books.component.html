@@ -85,7 +85,7 @@
               </nav>
               <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
               <!-- <form [formGroup> -->
-              <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of bookOrder; let i = index">
+              <div class="box" [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of bookOrder; let i = index">
                 <input name="{{b.id}}" type="checkbox" (change)="onCheckboxChange($event)" [value]="b.id">
                 {{b.title}}
               </div>
@@ -252,20 +252,20 @@
               
               <!-- default -->
               <ng-container *ngIf="!read">
-              <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of books2022">
+              <div class="box" [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
                 <input type="checkbox" (change)="onCheckboxChange($event)">
                 {{b.title}}
               </div>
               <div class="box">
                 <input class="input" type="text" placeholder="add option" (event)="addBook()">
               </div>
-              <div *ngIf="isChecked">
-                <div class="box" *ngFor="let q of books2022">
-                  {{q.title}}
-                </div>
-              </div>
+      
               </ng-container>
               <ng-container *ngIf="read">
+                <div class="box" [(ngModel)]="q.read" *ngFor="let q of books2022">
+                  <input type="checkbox" (change)="onCheckboxChange($event)">
+                  {{q.title}}
+                </div>
 
               </ng-container>
             </article>

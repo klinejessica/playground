@@ -1,6 +1,7 @@
 export interface Book {
     id?: Number;
-    checked?: boolean;
+    read?: boolean;
     title?: string;
     author?: string;
+    
 }
