@@ -1,27 +1,18 @@
 # Playground
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+This project was built using Angular, Bulma, PrimeNG and Bootstrap. 
 
-## Development server
+This project was created for practice and further exploration of the technologies I have already worked with. Creating apps which interest me that have a practical use to my everyday life.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Postcrossing
 
-## Code scaffolding
+I really enjoy Postcrossing and started to recreate the app and make my adjustments in how I want to view data and add more data. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Books
 
-## Build
+Reading is another favorite hobby. This section is dedicated to the books I want to read. My neverending TBR lists and my love for checking the books of my list as complete. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## New App
+I eventually want to transform this application to support microservices and I see this as a playground to explore my ideas. 
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<!-- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. -->

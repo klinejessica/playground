@@ -81,6 +81,15 @@ export class BooksComponent implements OnInit {
     console.log(id, isChecked); 
     
   }
+   
+  //sound + counter
+  //mark as read
+  //save
+  //
+  readBook($event: any){
+
+
+  }
   
 
 
