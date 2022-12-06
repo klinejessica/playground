@@ -28,7 +28,9 @@ export class BooksComponent implements OnInit {
   bookTab = "";
   counter: number = 0;
   isChecked: boolean = false;
-  read:boolean = false;
+  // read:boolean = false;
+  readTab: boolean = false;
+  // rbooks2022= Book[] = [];
 
 
 
@@ -85,7 +87,7 @@ export class BooksComponent implements OnInit {
   //sound + counter
   //mark as read
   //save
-  //
+  
   readBook($event: any){
 
 

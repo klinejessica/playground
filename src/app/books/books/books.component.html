@@ -245,27 +245,37 @@
               <!-- read v unread -->
                   <div class="tabs is-centered">
                     <ul>
-                      <li><a routerLink="/books2022" class="active" (click)="read = false" >Unread</a></li>
-                      <li><a routerLink="read" (click)="read = true">Read</a></li>
+                      <li><a routerLink="/books2022" class="active" (click)="readTab = false" >Unread</a></li>
+                      <li><a routerLink="read" (click)="readTab = true">Read</a></li>
                     </ul>
                   </div>
               
               <!-- default -->
-              <ng-container *ngIf="!read">
-              <div class="box" [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
-                <input type="checkbox" (change)="onCheckboxChange($event)">
-                {{b.title}}
-              </div>
+              <ng-container *ngIf="!readTab">
+                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
+                <div class="box" *ngIf="!b.read">
+                  <li>
+                  <input  type="checkbox" (change)="onCheckboxChange($event)">
+                 {{b.title}}
+                  </li>
+                </div>
+                </ul>
+                
+           
               <div class="box">
                 <input class="input" type="text" placeholder="add option" (event)="addBook()">
               </div>
-      
               </ng-container>
-              <ng-container *ngIf="read">
-                <div class="box" [(ngModel)]="q.read" *ngFor="let q of books2022">
-                  <input type="checkbox" (change)="onCheckboxChange($event)">
-                  {{q.title}}
-                </div>
+              
+              <ng-container *ngIf="readTab">
+                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
+                  <div class="box" *ngIf="b.read">
+                    <li>
+                    <input  type="checkbox" checked (change)="onCheckboxChange($event)">
+                   {{b.title}}
+                    </li>
+                  </div>
+                  </ul>
 
               </ng-container>
             </article>
