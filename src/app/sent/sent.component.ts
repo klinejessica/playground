@@ -15,7 +15,7 @@ export class SentComponent implements OnInit {
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
-  tableSizes: any = [10,15,20];
+  tableSizes: any = [10, 15, 20];
 
 
   constructor(private httpClient: HttpClient, private sentService: SentService) { }
@@ -26,18 +26,18 @@ export class SentComponent implements OnInit {
   }
 
   sentList(): void {
-    this.sentService.getData().subscribe((response)=>{
+    this.sentService.getData().subscribe((response) => {
       this.postcards = response;
       console.log(response);
     })
   }
 
-  onTableDataChange(event: any){
+  onTableDataChange(event: any) {
     this.page = event;
     this.sentList();
   }
 
-  onTableSizeChange(event: any){
+  onTableSizeChange(event: any) {
     this.tableSize = event.target.value;
     this.page = 1;
     this.sentList();

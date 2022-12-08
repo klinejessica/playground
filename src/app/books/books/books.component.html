@@ -53,6 +53,13 @@
                 </div>
               </nav>
               <progress class="progress is-danger" value="132" max="314"></progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/books" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
               <!-- default -->
               <div class="box" *ngFor="let b of book; let i = index">
                 <input id="item" type="checkbox">
@@ -83,6 +90,13 @@
                   </div>
                 </div>
               </nav>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/bookOrder" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
               <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
               <!-- <form [formGroup> -->
               <div class="box" [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of bookOrder; let i = index">
@@ -138,6 +152,13 @@
                 </div>
               </nav>
               <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/booksworld" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
               <!-- default -->
               <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of bookWorld">
                 <input type="checkbox" (change)="onCheckboxChange($event)">
@@ -190,6 +211,13 @@
                 </div>
               </nav>
               <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/books2021" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
               <!-- default -->
               <div class="box" [(ngModel)]="isChecked" ngDefaultControl *ngFor="let b of books2021">
                 <input type="checkbox" (change)="onCheckboxChange($event)">
@@ -237,46 +265,43 @@
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Read</p>
-                    <p class="title">{{this.counter}}</p>
+                    <p class="title">{{getCount(true)}}</p>
                   </div>
                 </div>
               </nav>
               <progress class="progress is-danger" value="0" max="100">90%</progress>
               <!-- read v unread -->
-                  <div class="tabs is-centered">
-                    <ul>
-                      <li><a routerLink="/books2022" class="active" (click)="readTab = false" >Unread</a></li>
-                      <li><a routerLink="read" (click)="readTab = true">Read</a></li>
-                    </ul>
-                  </div>
-              
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/books2022" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
+
               <!-- default -->
               <ng-container *ngIf="!readTab">
                 <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
-                <div class="box" *ngIf="!b.read">
-                  <li>
-                  <input  type="checkbox" (change)="onCheckboxChange($event)">
-                 {{b.title}}
-                  </li>
-                </div>
-                </ul>
-                
-           
-              <div class="box">
-                <input class="input" type="text" placeholder="add option" (event)="addBook()">
-              </div>
-              </ng-container>
-              
-              <ng-container *ngIf="readTab">
-                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
-                  <div class="box" *ngIf="b.read">
+                  <div class="box" *ngIf="!b.read">
                     <li>
-                    <input  type="checkbox" checked (change)="onCheckboxChange($event)">
-                   {{b.title}}
+                      <input type="checkbox" (click)="onCheckboxChange($event)">
+                      {{b.title}}
                     </li>
                   </div>
-                  </ul>
+                </ul>
+                <div class="box">
+                  <input class="input" type="text" placeholder="add option" (event)="addBook()">
+                </div>
+              </ng-container>
 
+              <ng-container *ngIf="readTab">
+                <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of books2022">
+                  <div class="box" *ngIf="b.read">
+                    <li>
+                      <input type="checkbox" checked (change)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
               </ng-container>
             </article>
           </div>

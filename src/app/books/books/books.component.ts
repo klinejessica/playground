@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { read } from 'fs';
 import { BooksService } from '../books.service';
 import { Book } from '../models/book';
 
@@ -27,13 +28,13 @@ export class BooksComponent implements OnInit {
   ]
   bookTab = "";
   counter: number = 0;
+ 
   isChecked: boolean = false;
   // read:boolean = false;
   readTab: boolean = false;
   // rbooks2022= Book[] = [];
 
-
-
+  
   constructor(private route: ActivatedRoute, private booksService: BooksService, fb: FormBuilder) {
 
   }
@@ -45,6 +46,10 @@ export class BooksComponent implements OnInit {
     this.getBooks2021();
     this.getBooks2022();
     
+  }
+
+  getCount(read: boolean){
+    return this.books2022.filter(o=> o.read === read).length;
   }
 
   getBooks() {
@@ -62,10 +67,12 @@ export class BooksComponent implements OnInit {
 
   getBooks2021() {
     this.booksService.getBooks2021().subscribe(books => this.books2021 = books);
+  
   }
 
   getBooks2022() {
     this.booksService.getBooks2022().subscribe(books => this.books2022 = books);
+    
   }
 
   onCheckboxChange($event: any) {
@@ -74,7 +81,6 @@ export class BooksComponent implements OnInit {
     const audio = new Audio('/assets/audio/buttonaudio.mp3');
     audio.load();
     if(!isChecked){
-      
       this.counter--;
     } else {
       audio.play()
