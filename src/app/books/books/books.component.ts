@@ -78,10 +78,11 @@ export class BooksComponent implements OnInit {
   onCheckboxChange($event: any) {
     const id = $event.target.value;
     const isChecked = $event.target.checked;
-    const audio = new Audio('/assets/audio/buttonaudio.mp3');
+    const audio = new Audio('/assets/audio/clickSound.mov');
     audio.load();
     if(!isChecked){
       this.counter--;
+      this.book.map(o => o.read === false);
     } else {
       audio.play()
       this.counter++;

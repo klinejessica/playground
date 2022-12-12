@@ -3,5 +3,6 @@ export interface Book {
     read?: boolean;
     title?: string;
     author?: string;
+    library?: boolean;
     
 }
