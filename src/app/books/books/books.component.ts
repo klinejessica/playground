@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -34,7 +35,7 @@ export class BooksComponent implements OnInit {
   readTab: boolean = false;
   // rbooks2022= Book[] = [];
 
-  
+  isModalActive: boolean = false;
   constructor(private route: ActivatedRoute, private booksService: BooksService, fb: FormBuilder) {
 
   }
@@ -99,9 +100,10 @@ export class BooksComponent implements OnInit {
 
 
   }
-  
 
-
+  toggleModal() {
+    this.isModalActive = !this.isModalActive;
+  }
 
 
 addBook(){
