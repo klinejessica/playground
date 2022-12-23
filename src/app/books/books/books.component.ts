@@ -105,6 +105,10 @@ export class BooksComponent implements OnInit {
     this.isModalActive = !this.isModalActive;
   }
 
+  close(){
+    this.isModalActive = !this.isModalActive;
+  }
+
 
 addBook(){
 
