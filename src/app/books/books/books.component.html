@@ -7,7 +7,7 @@
       <button (click)="isBookOrder=true" class="button is-primary" routerLink="/booksorder">
         Book Order
       </button>
-      <button (click)="isWorld =true" class="button is-primary" routerLink="/booksworld">
+      <button (click)="isWorld=true" class="button is-primary" routerLink="/booksworld">
         Books World
       </button>
       <button (click)="is2021=true" class="button is-primary" routerLink="/books2021">
@@ -17,8 +17,8 @@
         Books 2022
       </button>
     </div>
-    <ng-container>
-      <div id="column2" *ngIf="isBook">
+    <ng-container *ngIf="isBook">
+      <div id="column2">
         <div class="tile is-ancestor">
           <div class="tile is-parent">
             <article class="tile is-child box">
@@ -34,7 +34,7 @@
                     <p class="modal-card-title">Add New Book</p>
                     <button class="delete" aria-label="close" (click)="close()"></button>
                   </header>
-                  <section class="modal-card-body" >
+                  <section class="modal-card-body">
                     <input class="input is-link  bmodal" type="text" placeholder="Title">
                     <input class="input is-link  bmodal" type="text" placeholder="Author">
                     <label class="checkbox  bmodal">
@@ -87,7 +87,7 @@
               <!-- read v unread -->
               <div class="tabs is-centered">
                 <ul>
-                  <li><a routerLink="/books" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="/books" class="active" (click)="readTab=false">Unread</a></li>
                   <li><a routerLink="read" (click)="readTab = true">Read</a></li>
                 </ul>
               </div>
@@ -121,291 +121,293 @@
 
           </div>
         </div>
+      </div>
+    </ng-container>
 
-        <ng-container>
-          <div id="column3" *ngIf="isBookOrder">
-            <div class="tile is-ancestor">
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title"> Book Order</p>
-                  <button class="button is-link">
-                    Edit
-                  </button>
-                  <nav class="level is-mobile">
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Total</p>
-                        <p class="title">{{this.counter}}</p>
-                      </div>
-                    </div>
-                  </nav>
-                  <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
-                  <!-- read v unread -->
-                  <div class="tabs is-centered">
-                    <ul>
-                      <li><a routerLink="/bookOrder" class="active" (click)="readTab = false">Unread</a></li>
-                      <li><a routerLink="read" (click)="readTab = true">Read</a></li>
-                    </ul>
+
+    <ng-container>
+      <div id="column3" *ngIf="isBookOrder">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Book Order</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">{{this.counter}}</p>
                   </div>
-
-                  <!-- Default-->
-                  <ng-container *ngIf="!readTab">
-                    <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of bookOrder">
-                      <div class="box" *ngIf="!b.read">
-                        <li>
-                          <input type="checkbox" (click)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                    <div class="box">
-                      <input class="input" type="text" placeholder="add option" (event)="addBook()">
-                    </div>
-                  </ng-container>
-                  <ng-container *ngIf="readTab">
-                    <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of bookOrder">
-                      <div class="box" *ngIf="b.read">
-                        <li>
-                          <input type="checkbox" checked (change)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                  </ng-container>
-                </article>
+                </div>
+              </nav>
+              <progress class="progress is-danger" [value]="counter" max="18">90%</progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/bookOrder" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
               </div>
-            </div>
-          </div>
-        </ng-container>
 
-
-        <!-- BOOKS WORLD -->
-        <ng-container>
-          <div id="column2" *ngIf="isWorld">
-            <div class="tile is-ancestor">
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title"> Books World</p>
-                  <button class="button is-link">
-                    Edit
-                  </button>
-                  <nav class="level is-mobile">
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Total</p>
-                        <p class="title">9</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Library</p>
-                        <p class="title">0</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Non-Library</p>
-                        <p class="title">0</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Read</p>
-                        <p class="title">{{this.counter}}</p>
-                      </div>
-                    </div>
-                  </nav>
-                  <progress class="progress is-danger" value="0" max="100">90%</progress>
-                  <!-- read v unread -->
-                  <div class="tabs is-centered">
-                    <ul>
-                      <li><a routerLink="/booksworld" class="active" (click)="readTab = false">Unread</a></li>
-                      <li><a routerLink="read" (click)="readTab = true">Read</a></li>
-                    </ul>
+              <!-- Default-->
+              <ng-container *ngIf="!readTab">
+                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of bookOrder">
+                  <div class="box" *ngIf="!b.read">
+                    <li>
+                      <input type="checkbox" (click)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
                   </div>
-                  <!-- default -->
-                  <ng-container *ngIf="!readTab">
-                    <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of bookWorld">
-                      <div class="box" *ngIf="!b.read">
-                        <li>
-                          <input type="checkbox" (click)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                    <div class="box">
-                      <input class="input" type="text" placeholder="add option" (event)="addBook()">
-                    </div>
-                  </ng-container>
-                  <ng-container *ngIf="readTab">
-                    <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of bookWorld">
-                      <div class="box" *ngIf="b.read">
-                        <li>
-                          <input type="checkbox" checked (change)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                  </ng-container>
-                </article>
-              </div>
-            </div>
-
-          </div>
-        </ng-container>
-
-        <!-- BOOKS 2021 -->
-        <ng-container>
-          <div id="column2" *ngIf="is2021">
-            <div class="tile is-ancestor">
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title"> Books 2021</p>
-                  <button class="button is-link">
-                    Edit
-                  </button>
-                  <nav class="level is-mobile">
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Total</p>
-                        <p class="title">78</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Library</p>
-                        <p class="title">0</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Non-Library</p>
-                        <p class="title">0</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Read</p>
-                        <p class="title">{{this.counter}}</p>
-                      </div>
-                    </div>
-                  </nav>
-                  <progress class="progress is-danger" value="0" max="100">90%</progress>
-                  <!-- read v unread -->
-                  <div class="tabs is-centered">
-                    <ul>
-                      <li><a routerLink="/books2021" class="active" (click)="readTab = false">Unread</a></li>
-                      <li><a routerLink="read" (click)="readTab = true">Read</a></li>
-                    </ul>
+                </ul>
+                <div class="box">
+                  <input class="input" type="text" placeholder="add option" (event)="addBook()">
+                </div>
+              </ng-container>
+              <ng-container *ngIf="readTab">
+                <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of bookOrder">
+                  <div class="box" *ngIf="b.read">
+                    <li>
+                      <input type="checkbox" checked (change)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
                   </div>
-                  <!-- default -->
-                  <ng-container *ngIf="!readTab">
-                    <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2021">
-                      <div class="box" *ngIf="!b.read">
-                        <li>
-                          <input type="checkbox" (click)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                    <div class="box">
-                      <input class="input" type="text" placeholder="add option" (event)="addBook()">
-                    </div>
-                  </ng-container>
-                  <ng-container *ngIf="readTab">
-                    <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of books2021">
-                      <div class="box" *ngIf="b.read">
-                        <li>
-                          <input type="checkbox" checked (change)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                  </ng-container>
-                </article>
-              </div>
-            </div>
-
+                </ul>
+              </ng-container>
+            </article>
           </div>
-        </ng-container>
+        </div>
+      </div>
+    </ng-container>
 
-        <!-- BOOKS 2022 -->
-        <ng-container>
-          <div id="column2" *ngIf="is2022">
-            <div class="tile is-ancestor">
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title"> Books 2022</p>
-                  <button class="button is-link">
-                    Edit
-                  </button>
-                  <nav class="level is-mobile">
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Total</p>
-                        <p class="title">20</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Library</p>
-                        <p class="title">0</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Non-Library</p>
-                        <p class="title">0</p>
-                      </div>
-                    </div>
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">Read</p>
-                        <p class="title">{{this.counter}}</p>
-                      </div>
-                    </div>
-                  </nav>
-                  <progress class="progress is-danger" value="0" max="100">90%</progress>
-                  <!-- read v unread -->
-                  <div class="tabs is-centered">
-                    <ul>
-                      <li><a routerLink="/books2022" class="active" (click)="readTab = false">Unread</a></li>
-                      <li><a routerLink="read" (click)="readTab = true">Read</a></li>
-                    </ul>
+
+    <!-- BOOKS WORLD -->
+    <ng-container>
+      <div id="column2" *ngIf="isWorld">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books World</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">9</p>
                   </div>
-
-                  <!-- default -->
-                  <ng-container *ngIf="!readTab">
-                    <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
-                      <div class="box" *ngIf="!b.read">
-                        <li>
-                          <input type="checkbox" (click)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                    <div class="box">
-                      <input class="input" type="text" placeholder="add option" (event)="addBook()">
-                    </div>
-                  </ng-container>
-
-                  <ng-container *ngIf="readTab">
-                    <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of books2022">
-                      <div class="box" *ngIf="b.read">
-                        <li>
-                          <input type="checkbox" checked (change)="onCheckboxChange($event)">
-                          {{b.title}}
-                        </li>
-                      </div>
-                    </ul>
-                  </ng-container>
-                </article>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">{{this.counter}}</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/booksworld" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
               </div>
-            </div>
-
+              <!-- default -->
+              <ng-container *ngIf="!readTab">
+                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of bookWorld">
+                  <div class="box" *ngIf="!b.read">
+                    <li>
+                      <input type="checkbox" (click)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
+                <div class="box">
+                  <input class="input" type="text" placeholder="add option" (event)="addBook()">
+                </div>
+              </ng-container>
+              <ng-container *ngIf="readTab">
+                <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of bookWorld">
+                  <div class="box" *ngIf="b.read">
+                    <li>
+                      <input type="checkbox" checked (change)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
+              </ng-container>
+            </article>
           </div>
-        </ng-container>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- BOOKS 2021 -->
+    <ng-container>
+      <div id="column2" *ngIf="is2021">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books 2021</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">78</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">{{this.counter}}</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/books2021" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
+              <!-- default -->
+              <ng-container *ngIf="!readTab">
+                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2021">
+                  <div class="box" *ngIf="!b.read">
+                    <li>
+                      <input type="checkbox" (click)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
+                <div class="box">
+                  <input class="input" type="text" placeholder="add option" (event)="addBook()">
+                </div>
+              </ng-container>
+              <ng-container *ngIf="readTab">
+                <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of books2021">
+                  <div class="box" *ngIf="b.read">
+                    <li>
+                      <input type="checkbox" checked (change)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
+              </ng-container>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- BOOKS 2022 -->
+    <ng-container>
+      <div id="column2" *ngIf="is2022">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"> Books 2022</p>
+              <button class="button is-link">
+                Edit
+              </button>
+              <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total</p>
+                    <p class="title">20</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Non-Library</p>
+                    <p class="title">0</p>
+                  </div>
+                </div>
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Read</p>
+                    <p class="title">{{this.counter}}</p>
+                  </div>
+                </div>
+              </nav>
+              <progress class="progress is-danger" value="0" max="100">90%</progress>
+              <!-- read v unread -->
+              <div class="tabs is-centered">
+                <ul>
+                  <li><a routerLink="/books2022" class="active" (click)="readTab = false">Unread</a></li>
+                  <li><a routerLink="read" (click)="readTab = true">Read</a></li>
+                </ul>
+              </div>
+
+              <!-- default -->
+              <ng-container *ngIf="!readTab">
+                <ul [(ngModel)]="!b.read" ngDefaultControl *ngFor="let b of books2022">
+                  <div class="box" *ngIf="!b.read">
+                    <li>
+                      <input type="checkbox" (click)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
+                <div class="box">
+                  <input class="input" type="text" placeholder="add option" (event)="addBook()">
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="readTab">
+                <ul [(ngModel)]="b.read" ngDefaultControl *ngFor="let b of books2022">
+                  <div class="box" *ngIf="b.read">
+                    <li>
+                      <input type="checkbox" checked (change)="onCheckboxChange($event)">
+                      {{b.title}}
+                    </li>
+                  </div>
+                </ul>
+              </ng-container>
+            </article>
+          </div>
+        </div>
+
       </div>
     </ng-container>
   </div>
+
 </div>

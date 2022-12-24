@@ -1,8 +1,6 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import {  FormBuilder} from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { read } from 'fs';
 import { BooksService } from '../books.service';
 import { Book } from '../models/book';
 
